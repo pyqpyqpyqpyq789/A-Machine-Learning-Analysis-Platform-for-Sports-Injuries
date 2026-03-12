@@ -460,9 +460,9 @@ elif page == "集成学习":
                             shap_summary = plt.imread(st.session_state.temp_dir + "/plots/summary.jpg")
                             st.image(shap_summary, width=1000)
 
-                            st.subheader("SHAP决策图")
-                            shap_decison = plt.imread(st.session_state.temp_dir + "/plots/decision.jpg")
-                            st.image(shap_decison, width=1000)
+                            # st.subheader("SHAP决策图")
+                            # shap_decison = plt.imread(st.session_state.temp_dir + "/plots/decision.jpg")
+                            # st.image(shap_decison, width=1000)
 
                             st.subheader("SHAP瀑布图")
                             shap_waterfall = plt.imread(st.session_state.temp_dir + f"/plots/waterfall_{sample_id}.jpg")
@@ -544,5 +544,6 @@ if st.sidebar.button("清理所有数据"):
     st.session_state.clear()
     st.success("所有临时数据已清理")
     st.rerun()
+
 
 
