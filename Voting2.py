@@ -702,26 +702,26 @@ def Explain(model_results, sample_id, model_metr, target, names, project_path):
     # plt.close()
     # Deci_plot(y_pred=y_pred_list, y_true=y_true_list, sample_index=3)  # 绘制shap决策图
 
-    # # 指定样本绘制瀑布图
-    # # sample_index = 19
-    # shap.plots.waterfall(shap_values=explainer(X.iloc[X_id])[sample_id], show=False)
-    # plt.title(f'SHAP waterfall plot (sample ID = {sample_id})')
-    # plt.tight_layout()
-    # plt.savefig(project_path + f'plots/waterfall_{sample_id}.jpg', dpi=300, bbox_inches='tight')
-    # plt.close()
+    # 指定样本绘制瀑布图
+    # sample_index = 19
+    shap.plots.waterfall(shap_values=explainer(X.iloc[X_id])[sample_id], show=False)
+    plt.title(f'SHAP waterfall plot (sample ID = {sample_id})')
+    plt.tight_layout()
+    plt.savefig(project_path + f'plots/waterfall_{sample_id}.jpg', dpi=300, bbox_inches='tight')
+    plt.close()
 
-    # # 使用heatmap绘制SHAP值
-    # shap_explainer = shap.Explanation(
-    #     values=merged_shap,  # 你的 SHAP 值数组
-    #     base_values=Expected,  # 背景期望
-    #     data=X.iloc[id_].values,  # 对应的特征数据
-    #     feature_names=X.columns.tolist()
-    # )
-    # shap.plots.heatmap(shap_explainer, show=False)
-    # plt.title('SHAP heatmap')
-    # plt.tight_layout()
-    # plt.savefig(project_path + 'plots/heatmap.jpg', dpi=300, bbox_inches='tight')
-    # plt.close()
+    # 使用heatmap绘制SHAP值
+    shap_explainer = shap.Explanation(
+        values=merged_shap,  # 你的 SHAP 值数组
+        base_values=Expected,  # 背景期望
+        data=X.iloc[id_].values,  # 对应的特征数据
+        feature_names=X.columns.tolist()
+    )
+    shap.plots.heatmap(shap_explainer, show=False)
+    plt.title('SHAP heatmap')
+    plt.tight_layout()
+    plt.savefig(project_path + 'plots/heatmap.jpg', dpi=300, bbox_inches='tight')
+    plt.close()
 
 
 # 主函数
@@ -800,6 +800,7 @@ if __name__ == "__main__":
     if not os.path.exists(project_path+'plots'):
         os.makedirs(project_path+'plots')
     main()
+
 
 
 
