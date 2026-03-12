@@ -6,7 +6,7 @@ from tqdm import tqdm
 warnings.filterwarnings('ignore')
 
 # ===================== 全局论文级可视化设置 =====================
-plt.rcParams['font.family'] = 'Times New Roman'
+plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['font.size'] = 12
 plt.rcParams['axes.linewidth'] = 1.0
 plt.rcParams['xtick.major.width'] = 1.0
@@ -138,4 +138,5 @@ if __name__ == "__main__":
 
     # 绘制三条核心曲线
     plot_dca_curves(thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none)
+
 
