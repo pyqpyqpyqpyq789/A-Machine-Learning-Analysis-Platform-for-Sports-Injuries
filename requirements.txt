@@ -11,4 +11,5 @@ shap
 statsmodels
 tqdm
 imblearn
+scikit-optimize
 
