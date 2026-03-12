@@ -4,12 +4,8 @@ numpy
 matplotlib
 seaborn
 scikit-learn
-shutil
-tempfile
 xgboost
 lightgbm
 scipy
-pickle
-itertools
 shap
 tqdm
