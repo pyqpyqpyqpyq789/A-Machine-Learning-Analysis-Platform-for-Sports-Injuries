@@ -268,7 +268,8 @@ elif page == "模型训练":
             # # 'CatBoost': CatBoostClassifier(logging_level='Silent')),  # 关键：禁用日志输出，不创建catboost_info目录
             'Extra Trees': ExtraTreesClassifier(),
             'LGBM': LGBMClassifier(),
-            'Bagging': BaggingClassifier(base_estimator=DecisionTreeClassifier(random_state=42), random_state=42),
+            # 'Bagging': BaggingClassifier(base_estimator=DecisionTreeClassifier(random_state=42), random_state=42),
+            'Bagging': BaggingClassifier(estimator=DecisionTreeClassifier(random_state=42), random_state=42),
             "XGBoost": XGBClassifier(eval_metric='logloss', use_label_encoder=False),
         }
 
@@ -543,4 +544,5 @@ if st.sidebar.button("清理所有数据"):
     st.session_state.clear()
     st.success("所有临时数据已清理")
     st.rerun()
+
 
