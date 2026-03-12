@@ -11,3 +11,4 @@ shap
 statsmodels
 tqdm
 imblearn
+skopt
