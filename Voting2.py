@@ -661,7 +661,7 @@ def Explain(model_results, sample_id, model_metr, target, names, project_path):
         )
     # --------------- Bootstrapping计算DCA ---------------
     print('阳性样本数量：', np.sum(np.array(y_list) == 1))
-    Bootstrap计算DCA数据
+    # Bootstrap计算DCA数据
     thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none = bootstrap_dca(np.array(y_list), np.array(y_positive_proba), n_boot=1000)
     # print(f"thresholds 维度：{thresholds.ndim}")
     # 绘制三条核心曲线
@@ -800,6 +800,7 @@ if __name__ == "__main__":
     if not os.path.exists(project_path+'plots'):
         os.makedirs(project_path+'plots')
     main()
+
 
 
 
