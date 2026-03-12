@@ -30,7 +30,7 @@ def advance_summary_plot(shap_values, data, show=True):
     # 3. 学术样式配置（SCI标准）
     # --------------------------
     plt.rcParams.update({
-        'font.family': 'Arial',
+        'font.family': 'DejaVu Sans',
         'font.size': 10,
         'axes.linewidth': 0.8,
         'axes.labelsize': 11,
@@ -190,4 +190,5 @@ if __name__ == "__main__":
     # 模拟SHAP值
     shap_values = np.random.randn(n_samples, n_features) * 0.8
     X = pd.DataFrame(np.random.randn(n_samples, n_features), columns=feature_names)
+
     advance_summary_plot(shap_values=shap_values, data=X, show=True)
