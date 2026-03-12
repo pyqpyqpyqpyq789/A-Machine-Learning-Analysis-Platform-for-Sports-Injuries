@@ -662,27 +662,27 @@ def Explain(model_results, sample_id, model_metr, target, names, project_path):
     # --------------- Bootstrapping计算DCA ---------------
     print('阳性样本数量：', np.sum(np.array(y_list) == 1))
     # Bootstrap计算DCA数据
-    # thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none = bootstrap_dca(np.array(y_list), np.array(y_positive_proba), n_boot=1000)
+    thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none = bootstrap_dca(np.array(y_list), np.array(y_positive_proba), n_boot=1000)
     # print(f"thresholds 维度：{thresholds.ndim}")
     # # 绘制三条核心曲线
-    # plot_dca_curves(thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none, save_path=project_path+"plots/dca_bootstrap.jpg")
+    plot_dca_curves(thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none, save_path=project_path+"plots/dca_bootstrap.jpg")
 
-    advance_summary_plot(merged_shap, X.iloc[X_id], show=False)
+    # advance_summary_plot(merged_shap, X.iloc[X_id], show=False)
+    # plt.tight_layout()
+    # plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight', facecolor='none', edgecolor='none')
+    # plt.close()
+
+    shap.summary_plot(merged_shap, X.iloc[X_id], plot_type="bar", show=False)
+    plt.title('SHAP feature importance')
     plt.tight_layout()
-    plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight', facecolor='none', edgecolor='none')
+    plt.savefig(project_path + 'plots/bar.jpg', dpi=300, bbox_inches='tight')
     plt.close()
-
-    # shap.summary_plot(merged_shap, X.iloc[X_id], plot_type="bar", show=False)
-    # plt.title('SHAP feature importance')
-    # plt.tight_layout()
-    # plt.savefig(project_path + 'plots/bar.jpg', dpi=300, bbox_inches='tight')
-    # plt.close()
     #
-    # shap.summary_plot(merged_shap, X.iloc[X_id], show=False)
-    # plt.title('SHAP bees warm plot')
-    # plt.tight_layout()
-    # plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight')
-    # plt.close()
+    shap.summary_plot(merged_shap, X.iloc[X_id], show=False)
+    plt.title('SHAP bees warm plot')
+    plt.tight_layout()
+    plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight')
+    plt.close()
 
     # shap.initjs()
     # shap.save_html(project_path + 'plots/force_plot.html',
@@ -800,6 +800,7 @@ if __name__ == "__main__":
     if not os.path.exists(project_path+'plots'):
         os.makedirs(project_path+'plots')
     main()
+
 
 
 
