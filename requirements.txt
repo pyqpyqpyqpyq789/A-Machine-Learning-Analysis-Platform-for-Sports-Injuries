@@ -12,4 +12,5 @@ statsmodels
 tqdm
 imblearn
 scikit-optimize
+pdpbox
 
