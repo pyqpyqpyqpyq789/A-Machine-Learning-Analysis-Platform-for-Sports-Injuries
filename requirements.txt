@@ -10,3 +10,4 @@ scipy
 shap
 statsmodels
 tqdm
+imblearn
