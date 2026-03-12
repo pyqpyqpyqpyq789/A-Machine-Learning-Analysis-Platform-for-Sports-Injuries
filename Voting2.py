@@ -667,10 +667,10 @@ def Explain(model_results, sample_id, model_metr, target, names, project_path):
     # 绘制三条核心曲线
     plot_dca_curves(thresholds, mean_nb, lb_nb, ub_nb, nb_all, nb_none, save_path=project_path+"plots/dca_bootstrap.jpg")
 
-    # advance_summary_plot(merged_shap, X.iloc[X_id], show=False)
-    # plt.tight_layout()
-    # plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight', facecolor='none', edgecolor='none')
-    # plt.close()
+    advance_summary_plot(merged_shap, X.iloc[X_id], show=False)
+    plt.tight_layout()
+    plt.savefig(project_path + 'plots/summary.jpg', dpi=300, bbox_inches='tight', facecolor='none', edgecolor='none')
+    plt.close()
 
     # shap.summary_plot(merged_shap, X.iloc[X_id], plot_type="bar", show=False)
     # plt.title('SHAP feature importance')
@@ -800,6 +800,7 @@ if __name__ == "__main__":
     if not os.path.exists(project_path+'plots'):
         os.makedirs(project_path+'plots')
     main()
+
 
 
 
